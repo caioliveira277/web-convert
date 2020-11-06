@@ -28,13 +28,13 @@ module.exports = {
       return console.trace(error);
     }
   },
-  ConvertImages: async (entryFiles = [], finalPath) => {
+  ConvertImages: async (entryFiles = [], sizes, exts, finalPath) => {
     try {
       const log = {};
       const parms = {
         files: entryFiles,
-        sizes: [100, 200, 300],
-        exts: ["jpg", "webp"]
+        sizes,
+        exts
       };
 
       for (let countFile = 0; countFile < parms.files.length; countFile++) {
@@ -44,7 +44,7 @@ module.exports = {
         for (let countSize = 0; countSize < parms.sizes.length; countSize++) {
           for (let countExt = 0; countExt < parms.exts.length; countExt++) {
             await sharp(parms.files[countFile])
-              .resize(parms.sizes[countSize], null, {
+              .resize(parseInt(parms.sizes[countSize]), null, {
                 fit: sharp.fit.cover,
               })
               .toFormat(parms.exts[countExt], {
@@ -66,7 +66,7 @@ module.exports = {
       return console.trace(error);
     }
   },
-  StartFinalDirectory: async (finalPath) => {
+  ResetFinalDirectory: async (finalPath) => {
     await fsPromises.rmdir(finalPath, { recursive: true })
     return await fsPromises.mkdir(finalPath);
   }
