@@ -1,0 +1,20 @@
+{
+  "name": "web-convert",
+  "version": "1.0.0",
+  "description": "Conversor de imagens para padrões Web",
+  "main": "./src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "bin": {
+    "web-convert": "bin/index.js"
+  },
+  "keywords": [],
+  "author": "Caio Oliveira",
+  "preferGlobal": true,
+  "license": "MIT",
+  "dependencies": {
+    "sharp": "^0.26.2"
+  }
+}
