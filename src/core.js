@@ -1,7 +1,9 @@
 const path = require("path");
 const sharp = require("sharp");
 const fsPromises = require("fs").promises;
-const fs = require("fs");
+const imagemin = require("imagemin");
+const imageminPngquant = require("imagemin-pngquant");
+const imageminJpegtran = require('imagemin-jpegtran');
 
 module.exports = {
   GetValidImages: async (directory) => {
@@ -43,15 +45,32 @@ module.exports = {
 
         for (let countSize = 0; countSize < parms.sizes.length; countSize++) {
           for (let countExt = 0; countExt < parms.exts.length; countExt++) {
+            let outputFile;
+            if(parms.exts[countExt] === "png" || parms.exts[countExt] === "jpeg" || parms.exts[countExt] === "jpg"){
+              outputFile = path.resolve(finalPath, `${fileName}-L${parms.sizes[countSize]}-temp.${parms.exts[countExt]}`);
+            }else {
+              outputFile = path.resolve(finalPath, `${fileName}-L${parms.sizes[countSize]}.${parms.exts[countExt]}`);
+            }
             await sharp(parms.files[countFile])
               .resize(parseInt(parms.sizes[countSize]), null, {
                 fit: sharp.fit.cover,
               })
               .toFormat(parms.exts[countExt], {
-                quality: 100
+                quality: 80,
               })
-              .toFile(path.resolve(finalPath, `${fileName}-L${parms.sizes[countSize]}.${parms.exts[countExt]}`))
-              .then(() => {
+              .toFile(outputFile)
+              .then(async () => {
+                if(parms.exts[countExt] === "png" || parms.exts[countExt] === "jpeg" || parms.exts[countExt] === "jpg") {
+                  await imagemin([outputFile], {
+                    destination: finalPath,
+                    plugins: [
+                      imageminPngquant({
+                        quality: [0.4, 0.5]
+                      }),
+                      imageminJpegtran()
+                    ]
+                  });
+                }
                 log[baseName] = true;
               })
               .catch(() => {

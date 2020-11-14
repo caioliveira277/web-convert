@@ -15,7 +15,13 @@
   "preferGlobal": true,
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-pngquant": "^9.0.1",
+    "pngquant": "^3.1.0",
     "readline-sync": "^1.4.10",
     "sharp": "^0.26.2"
-  }
+  },
+  "devDependencies": {}
 }

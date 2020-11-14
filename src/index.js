@@ -1,12 +1,16 @@
+require("dotenv").config();
 const path = require("path");
 const readlineSync = require('readline-sync');
 
-/* local */
-// const directory = path.resolve(__dirname, "..", "public");
-// const finalPath = path.resolve(__dirname, "..", "public", "converted");
+let directory, finalPath;
+if(process.env.MODE === "dev") {
+  directory = path.resolve(__dirname, "..", "public");
+  finalPath = path.resolve(__dirname, "..", "public", "converted");
+}else {
+  directory = path.resolve();
+  finalPath = path.resolve("converted");
+}
 
-const directory = path.resolve();
-const finalPath = path.resolve("converted");
 
 const { GetValidImages, ConvertImages, ResetFinalDirectory } = require("./core");
 
