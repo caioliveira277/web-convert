@@ -5,20 +5,22 @@ const imagemin = require("imagemin");
 const imageminPngquant = require("imagemin-pngquant");
 const imageminJpegtran = require('imagemin-jpegtran');
 
+const allowedExtensions = ["jpg", "jpeg", "png", "webp"];
+const ValidateExtension = (ext) => {
+  return allowedExtensions.find((validExtesion) => ext.trim().toLowerCase() === validExtesion);
+}
 module.exports = {
   GetValidImages: async (directory) => {
     try {
       const allFiles = await fsPromises.readdir(directory);
-      const allowedExtensions = [".jpg", ".jpeg", ".png", ".webp"];
 
       if (!allFiles) throw new Error("Pasta vazia");
 
       const validFiles = [];
       for (const file of allFiles) {
         let pathFile = path.resolve(directory, file);
-        let fileExtension = path.extname(pathFile);
-        let isValidFile = allowedExtensions.find((validExtesion) => fileExtension.toLowerCase() === validExtesion);
-        if (isValidFile) validFiles.push(pathFile);
+        let fileExtension = path.extname(pathFile).trim().toLowerCase().split(".").join("");
+        if (ValidateExtension(fileExtension)) validFiles.push(pathFile);
       }
 
       if (!validFiles.length)
@@ -27,7 +29,7 @@ module.exports = {
         return validFiles;
 
     } catch (error) {
-      return console.trace(error);
+      console.log(error);
     }
   },
   ConvertImages: async (entryFiles = [], sizes, exts, finalPath) => {
@@ -46,21 +48,23 @@ module.exports = {
         for (let countSize = 0; countSize < parms.sizes.length; countSize++) {
           for (let countExt = 0; countExt < parms.exts.length; countExt++) {
             let outputFile;
-            if(parms.exts[countExt] === "png" || parms.exts[countExt] === "jpeg" || parms.exts[countExt] === "jpg"){
-              outputFile = path.resolve(finalPath, `${fileName}-L${parms.sizes[countSize]}-temp.${parms.exts[countExt]}`);
+            let ext = parms.exts[countExt].trim().toLowerCase();
+
+            if(ext === "png" || ext === "jpeg" || ext === "jpg"){
+              outputFile = path.resolve(finalPath, `${fileName}-L${parms.sizes[countSize]}-temp.${ext}`);
             }else {
-              outputFile = path.resolve(finalPath, `${fileName}-L${parms.sizes[countSize]}.${parms.exts[countExt]}`);
+              outputFile = path.resolve(finalPath, `${fileName}-L${parms.sizes[countSize]}.${ext}`);
             }
             await sharp(parms.files[countFile])
-              .resize(parseInt(parms.sizes[countSize]), null, {
+              .resize(parseInt(parms.sizes[countSize].trim()), null, {
                 fit: sharp.fit.cover,
               })
-              .toFormat(parms.exts[countExt], {
+              .toFormat(ext, {
                 quality: 80,
               })
               .toFile(outputFile)
               .then(async () => {
-                if(parms.exts[countExt] === "png" || parms.exts[countExt] === "jpeg" || parms.exts[countExt] === "jpg") {
+                if(ext === "png" || ext === "jpeg" || ext === "jpg") {
                   await imagemin([outputFile], {
                     destination: finalPath,
                     plugins: [
@@ -82,11 +86,13 @@ module.exports = {
       return log;
 
     } catch (error) {
-      return console.trace(error);
+      console.trace(error);
     }
   },
   ResetFinalDirectory: async (finalPath) => {
     await fsPromises.rmdir(finalPath, { recursive: true })
     return await fsPromises.mkdir(finalPath);
-  }
+  },
+  ValidateExtension,
+  allowedExtensions
 }
