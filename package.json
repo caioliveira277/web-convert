@@ -10,7 +10,7 @@
   "bin": {
     "web-convert": "bin/index.js"
   },
-  "keywords": [],
+  "keywords": ["Conversor", "Images", "Tiny Images", "Minify", "Convert", "WEBP", "PNG", "JPEG", "JPG"],
   "author": "Caio Oliveira",
   "preferGlobal": true,
   "license": "MIT",

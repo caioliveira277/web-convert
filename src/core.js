@@ -75,10 +75,10 @@ module.exports = {
                     ]
                   });
                 }
-                log[baseName] = true;
+                log[baseName] = 'Convertida com sucesso ✅';
               })
               .catch(() => {
-                log[baseName] = false;
+                log[baseName] = 'Falha ao converter ❌';
               })
           }
         }
