@@ -34,18 +34,25 @@ Execute o comando abaixo para instalar a CLI globalmente:
 ### Utilizando a **CLI**:
 Após a instalação, a CLI estará disponível no seu terminal. Veja o exemplo de utilização.
 
-> Passo 1: Estrutura de pasta:
+> Estrutura de pasta do exemplo:
 ```sh
     .
-    ├── desktop
-    │   └── imagens
-    │       ├── img.webp
-    │       └── img.png
+    ├── Desktop
+    │   ├── montain1.png
+    │   └── nature1.png
     └── converted *Pasta gerado ao final do processo*
-        ├── img_L-300.webp
-        └── img_L-300.png
+        ├── nature1-L300-temp.jpg
+        ├── nature1-L300-temp.jpeg
+        ├── nature1-L668-temp.png
+        ├── nature1-L720-temp.webp
+        ├── montain-L430.png
+        ├── montain-L430.webp
+        └── ...
 ```
 ###### Para o exemplo de utilização, estarei seguindo a estrutura acima
+
+#### Como utilizar:
+ <img src="https://caioliveira277.github.io/web-convert/exemplo-uso.gif"  width="600" height="660">
 
 ---
 ## Links: 🌐
