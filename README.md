@@ -52,7 +52,7 @@ Após a instalação, a CLI estará disponível no seu terminal. Veja o exemplo 
 ###### Para o exemplo de utilização, estarei seguindo a estrutura acima
 
 #### Como utilizar:
- <img src="https://caioliveira277.github.io/web-convert/exemplo-uso.gif"  width="600" height="660">
+ <img src="https://caioliveira277.github.io/web-convert/exemplo-uso.gif">
 
 ---
 ## Links: 🌐
