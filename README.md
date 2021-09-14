@@ -39,26 +39,19 @@ Após a instalação, a CLI estará disponível no seu terminal. Veja o exemplo 
     .
     ├── desktop
     │   └── imagens
-    ├── project2
-    │   ├── public
-    │   ├── ...
-    │   └── tsconfig.json
-    ├── .editorconfig
-    ├── .gitignore
-    ├── LICENSE
-    └── README.md
+    │       ├── img.webp
+    │       └── img.png
+    └── converted *Pasta gerado ao final do processo*
+        ├── img_L-300.webp
+        └── img_L-300.png
 ```
 
 ---
 ## Links: 🌐
-***Projeto online GitHub Pages:***<br>
-[<ins>Link do projeto</ins>](https://caioliveira277.github.io/todoList/)
-
-***Curso The Creative Javascript:***<br>
-[<ins>Link do curso</ins>](https://developedbyed.com/p/the-creative-javascript-course)
-
-***Documentação Gulp:***<br>
-[<ins>Gulp docs</ins>](https://gulpjs.com/)
+***Libs utilizadas para tratamento das imagens:***<br>
+[<ins>Image Min</ins>](https://www.npmjs.com/package/imagemin) <br>
+[<ins>Node Pngquant</ins>](https://www.npmjs.com/package/pngquant) <br>
+[<ins>Sharp</ins>](https://www.npmjs.com/package/sharp) <br>
 
 ---
 ## Licença
