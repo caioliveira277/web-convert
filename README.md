@@ -31,7 +31,7 @@ Execute o comando abaixo para instalar a CLI globalmente:
    npm install -g web-convert
    ```  
   
-### Utilizando a **CLI**:
+### Utilizando:
 Após a instalação, a CLI estará disponível no seu terminal. Veja o exemplo de utilização.
 
 > Estrutura de pasta do exemplo:
@@ -52,7 +52,11 @@ Após a instalação, a CLI estará disponível no seu terminal. Veja o exemplo 
 ###### Para o exemplo de utilização, estarei seguindo a estrutura acima
 
 #### Como utilizar:
- <img src="https://caioliveira277.github.io/web-convert/exemplo-uso.gif">
+<img src="https://caioliveira277.github.io/web-convert/exemplo-uso.gif">
+
+### Conclusão:
+Ao executar o comando ```web-convert```, siga os passos indicados pela própria CLI para obter os parametros de redimencionamento e conversão 👍<br>
+Depois de finalizado o processo, será criada uma pasta chamada ```converted``` no diretório onde o comando foi executado, nela está as imagens redimencionadas, convertidas e comprimidas.
 
 ---
 ## Links: 🌐
