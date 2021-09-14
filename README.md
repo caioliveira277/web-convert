@@ -45,6 +45,7 @@ Após a instalação, a CLI estará disponível no seu terminal. Veja o exemplo 
         ├── img_L-300.webp
         └── img_L-300.png
 ```
+###### Para o exemplo de utilização, estarei seguindo a estrutura acima
 
 ---
 ## Links: 🌐
