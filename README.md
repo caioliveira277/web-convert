@@ -34,7 +34,7 @@ Execute o comando abaixo para instalar a CLI globalmente:
 ### Utilizando a **CLI**:
 Após a instalação, a CLI estará disponível no seu terminal. Veja o exemplo de utilização.
 
-> Passo 1: Estruturá de pasta:
+> Passo 1: Estrutura de pasta:
 ```sh
     .
     ├── desktop
