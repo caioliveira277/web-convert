@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "Conversor de imagens para padrões Web",
   "main": "./src/index.js",
-  "private": true,
   "scripts": {
     "start": "node ./src/index.js"
   },
   "bin": {
     "web-convert": "bin/index.js"
   },
-  "keywords": ["Conversor", "Images", "Tiny Images", "Minify", "Convert", "WEBP", "PNG", "JPEG", "JPG"],
+  "keywords": ["Comprimir imagens", "Dimencionar imagens", "WEBP", "PNG", "JPG", "JPEG", "Converter imagens", "CLI"],
   "author": "Caio Oliveira",
   "preferGlobal": true,
   "license": "MIT",
