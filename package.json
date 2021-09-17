@@ -24,6 +24,7 @@
   },
   "devDependencies": {},
   "repository": {
-    "url": "git://github.com/my-org/caioliveira277/web-convert.git"
+    "type": "git",
+    "url": "https://github.com/caioliveira277/web-convert.git"
   }
 }
