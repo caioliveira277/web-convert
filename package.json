@@ -1,5 +1,5 @@
 {
-  "name": "web-convert",
+  "name": "@caioliveira277/web-convert",
   "version": "1.0.0",
   "description": "Conversor de imagens para padrões Web",
   "main": "./src/index.js",
@@ -22,5 +22,8 @@
     "readline-sync": "^1.4.10",
     "sharp": "^0.26.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "url": "git://github.com/my-org/caioliveira277/web-convert.git"
+  }
 }
